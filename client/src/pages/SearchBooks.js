@@ -49,6 +49,7 @@ const SearchBooks = () => {
         title: book.volumeInfo.title,
         description: book.volumeInfo.description,
         image: book.volumeInfo.imageLinks?.thumbnail || '',
+        // added the link as this didn't come with the starter code files
         link: book.volumeInfo.infoLink
       }));
 
