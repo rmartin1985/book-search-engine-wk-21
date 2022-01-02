@@ -100,6 +100,10 @@
 
   ![Search for books](https://media.giphy.com/media/0aOwKSHqRlVdleBwJi/giphy.gif)
 
+  ![Login/Signup](https://media.giphy.com/media/KYjYy12yixCai0NsHr/giphy.gif)
+
+  ![Add books/Delete books](https://media.giphy.com/media/Rj8mCBUorwwHHL2hVk/giphy.gif)
+
   ## Technology Used
   **1. [Node.js](https://nodejs.org/en/)**
 
@@ -107,7 +111,7 @@
 
   **3. [Mongoose ODM](https://mongoosejs.com/)**
 
-  **4. [Express.js](https://www.npmjs.com/package/express)**
+  **4. [Apollo Client](https://www.apollographql.com/docs/react/)**
 
   ## Questions
 
