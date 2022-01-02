@@ -1,5 +1,6 @@
 const { gql } = require('apollo-server-express');
 
+// looked up the input type on the GraphQL docs to implement input
 const typeDefs = gql`
 type User {
     _id: ID!
