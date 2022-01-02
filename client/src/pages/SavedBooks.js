@@ -1,15 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+// removed the useState and useEffect hooks
 import { Jumbotron, Container, CardColumns, Card, Button } from 'react-bootstrap';
 import { useQuery, useMutation } from '@apollo/client';
 import { GET_ME } from '../utils/queries';
-import { getMe, deleteBook } from '../utils/API';
+// removed getMe and deleteBook
 import Auth from '../utils/auth';
 import { removeBookId } from '../utils/localStorage';
+import { REMOVE_BOOK } from '../utils/mutations';
 
 const SavedBooks = () => {
   // removed useEffect and replaced with useQuery
   const { loading, data } = useQuery(GET_ME)
   const userData = data?.me || [];
+
+  const [removeBook] = useMutation(REMOVE_BOOK);
 
   // create function that accepts the book's mongo _id value as param and deletes the book from the database
   const handleDeleteBook = async (bookId) => {
@@ -20,7 +24,9 @@ const SavedBooks = () => {
     }
 
     try {
-      const response = await deleteBook(bookId, token);
+      const response = await removeBook({
+        variables: { bookId: bookId }
+      });
 
       if (!response.ok) {
         throw new Error('something went wrong!');
@@ -35,8 +41,8 @@ const SavedBooks = () => {
     }
   };
 
-  // if data isn't here yet, say so
-  if (!userDataLength) {
+  // if data isn't here yet, say so. Updated this to the loading variable
+  if (loading) {
     return <h2>LOADING...</h2>;
   }
 
