@@ -24,3 +24,21 @@ mutaation addUser($username: String!, email: String!, password: String!) {
     }
 }
 `;
+
+export const SAVE_BOOK = gql`
+mutation saveBook($input: SavedBookInput) {
+    saveBook(input: $input) {
+        _id
+        username
+        bookCount
+        savedBooks {
+            bookId
+            title
+            authors
+            description
+            image
+            link
+        }
+    }
+}
+`;
