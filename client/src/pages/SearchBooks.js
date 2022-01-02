@@ -78,7 +78,8 @@ const SearchBooks = () => {
         }
       });
 
-      if (!response.ok) {
+      // had to remove .ok for this to work
+      if (!response) {
         throw new Error('something went wrong!');
       }
 
